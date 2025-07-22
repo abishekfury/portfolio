@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import profilePic from "../assets/profile.jpeg";
+
 
 const social = [
   { href: "https://github.com/yourusername", icon: <GitHubIcon fontSize="large" />, label: "GitHub" },
@@ -54,7 +56,7 @@ const Landing = () => (
           }}
         >
           <Avatar
-            src="/assets/profile.jpeg"
+            src={profilePic}
             alt="Profile"
             variant="square"
             sx={{

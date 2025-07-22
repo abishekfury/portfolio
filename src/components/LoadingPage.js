@@ -3,7 +3,6 @@ import { Box, Typography } from "@mui/material";
 import TerminalIcon from "@mui/icons-material/Terminal";
 
 const message = "Installing dependencies...";
-const [dot1, dot2, dot3] = ["", ".", "..", "..."];
 
 const useAnimatedDots = () => {
   const [dots, setDots] = React.useState("");
@@ -63,7 +62,7 @@ const LoadingPage = () => {
             mb: 1,
           }}
         >
-          $ npx your-portfolio
+          $ npx Abishek-portfolio
         </Typography>
         <Typography
           component="span"

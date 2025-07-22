@@ -10,20 +10,22 @@ import {
   Button,
 } from "@mui/material";
 
-// Enhance maintainability by extracting project data
+import gymImg from "../assets/gym.png";
+import amazonImg from "../assets/amazon.webp";
+
 const PROJECTS = [
   {
     title: "Gym Project",
     description:
       "A full MERN stack app with live chat and notification features for fitness enthusiasts.",
-    image: "/assets/gym.png",
+    image: gymImg,
     link: "https://github.com/yourusername/social-app",
   },
   {
     title: "Clone Amazon Project",
     description:
       "Feature-rich admin panel for managing products, orders, and detailed analytics.",
-    image: "/assets/amazon.webp",
+    image: amazonImg,
     link: "https://github.com/yourusername/ecommerce-dashboard",
   },
 ];

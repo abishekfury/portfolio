@@ -11,45 +11,60 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 
-// Skill data
+// Import all skill icons from src/assets
+import reactIcon from "../assets/react.png";
+import reduxIcon from "../assets/redux.png";
+import muiIcon from "../assets/mui.avif";
+import tailwindIcon from "../assets/tailwind.png";
+import nodeIcon from "../assets/node.png";
+import expressIcon from "../assets/express.png";
+import apiIcon from "../assets/api.avif";
+import mongoIcon from "../assets/mongodb.jpg";
+import dockerIcon from "../assets/docker.webp";
+import cicdIcon from "../assets/cicd.png";
+import gitIcon from "../assets/git.webp";
+import codeIcon from "../assets/code.webp";
+import leaderIcon from "../assets/leader.webp";
+import docIcon from "../assets/doc.jpg";
+
+
 const expertiseAreas = [
   {
     category: "Frontend Development",
     skills: [
-      { name: "React", icon: "/assets/react.png", level: 90 },
-      { name: "Redux", icon: "/assets/redux.png", level: 50 },
-      { name: "Material UI", icon: "/assets/mui.avif", level: 90 },
-      { name: "Tailwind CSS", icon: "/assets/tailwind.png", level: 70 },
+      { name: "React", icon: reactIcon, level: 90 },
+      { name: "Redux", icon: reduxIcon, level: 50 },
+      { name: "Material UI", icon: muiIcon, level: 90 },
+      { name: "Tailwind CSS", icon: tailwindIcon, level: 70 },
     ],
   },
   {
     category: "Backend Development",
     skills: [
-      { name: "Node.js", icon: "/assets/mongodb.jpg", level: 80 },
-      { name: "Express.js", icon: "/assets/express.png", level: 80 },
-      { name: "REST API", icon: "/assets/api.avif", level: 75 },
+      { name: "Node.js", icon: nodeIcon, level: 80 },
+      { name: "Express.js", icon: expressIcon, level: 80 },
+      { name: "REST API", icon: apiIcon, level: 75 },
     ],
   },
   {
     category: "Database & DevOps",
     skills: [
-      { name: "MongoDB", icon: "/assets/mongodb.jpg", level: 85 },
-      { name: "Docker", icon: "/assets/docker.webp", level: 60 },
-      { name: "CI/CD", icon: "/assets/cicd.png", level: 70 },
+      { name: "MongoDB", icon: mongoIcon, level: 85 },
+      { name: "Docker", icon: dockerIcon, level: 60 },
+      { name: "CI/CD", icon: cicdIcon, level: 70 },
     ],
   },
   {
     category: "Collaboration & Process",
     skills: [
-      { name: "Git", icon: "/assets/git.webp", level: 60 },
-      { name: "Code Reviews", icon: "/assets/code.webp", level: 60 },
-      { name: "Technical Leadership", icon: "/assets/leader.webp", level: 80 },
-      { name: "Documentation", icon: "/assets/doc.jpg", level: 85 },
+      { name: "Git", icon: gitIcon, level: 60 },
+      { name: "Code Reviews", icon: codeIcon, level: 60 },
+      { name: "Technical Leadership", icon: leaderIcon, level: 80 },
+      { name: "Documentation", icon: docIcon, level: 85 },
     ],
   },
 ];
 
-// Main Skills Component
 const Skills = () => (
   <Box id="skills" py={{ xs: 6, md: 10 }} px={3} bgcolor="background.paper">
     <Typography
@@ -103,7 +118,7 @@ const Skills = () => (
             container
             spacing={4}
             justifyContent="center"
-            alignItems="stretch" // Ensures cards stretch to equal height
+            alignItems="stretch"
           >
             {area.skills.map((skill) => (
               <Grid
@@ -114,8 +129,8 @@ const Skills = () => (
                 lg={3}
                 key={skill.name}
                 sx={{
-                  display: "flex", // let Paper fill height
-                  justifyContent: "center"
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
                 <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.24 }}>
