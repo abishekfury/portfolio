@@ -8,7 +8,9 @@ import {
   Button,
   Alert,
   Container,
+  useMediaQuery
 } from "@mui/material";
+import { motion } from "framer-motion";
 
 // Initial form state
 const INITIAL_FORM_STATE = {
@@ -17,7 +19,7 @@ const INITIAL_FORM_STATE = {
   message: "",
 };
 
-const ContactFormFields = ({ form, handleChange }) => (
+const ContactFormFields = ({ form, handleChange, isMobile }) => (
   <>
     <TextField
       label="Name"
@@ -25,8 +27,19 @@ const ContactFormFields = ({ form, handleChange }) => (
       required
       fullWidth
       margin="normal"
+      size={isMobile ? "small" : "medium"}
       value={form.name}
       onChange={handleChange}
+      sx={{
+        '& .MuiOutlinedInput-root': {
+          '& fieldset': {
+            borderColor: 'divider',
+          },
+          '&:hover fieldset': {
+            borderColor: 'primary.main',
+          },
+        }
+      }}
     />
     <TextField
       label="Email"
@@ -35,8 +48,19 @@ const ContactFormFields = ({ form, handleChange }) => (
       type="email"
       fullWidth
       margin="normal"
+      size={isMobile ? "small" : "medium"}
       value={form.email}
       onChange={handleChange}
+      sx={{
+        '& .MuiOutlinedInput-root': {
+          '& fieldset': {
+            borderColor: 'divider',
+          },
+          '&:hover fieldset': {
+            borderColor: 'primary.main',
+          },
+        }
+      }}
     />
     <TextField
       label="Message"
@@ -44,30 +68,47 @@ const ContactFormFields = ({ form, handleChange }) => (
       required
       fullWidth
       multiline
-      minRows={4}
+      minRows={isMobile ? 3 : 4}
       margin="normal"
+      size={isMobile ? "small" : "medium"}
       value={form.message}
       onChange={handleChange}
+      sx={{
+        '& .MuiOutlinedInput-root': {
+          '& fieldset': {
+            borderColor: 'divider',
+          },
+          '&:hover fieldset': {
+            borderColor: 'primary.main',
+          },
+        }
+      }}
     />
   </>
 );
 
-const SubmitButton = () => (
+const SubmitButton = ({ isMobile }) => (
   <Button
     type="submit"
     variant="contained"
     color="primary"
     fullWidth
-    sx={{ mt: 2, fontWeight: "bold" }}
+    sx={{ 
+      mt: 2, 
+      fontWeight: "bold",
+      py: isMobile ? 1.2 : 1.5,
+      fontSize: isMobile ? '0.875rem' : '1rem'
+    }}
   >
     Send Message
   </Button>
 );
 
-const Contact = () => {
+const Contact = ({ mode }) => {
   const [form, setForm] = useState(INITIAL_FORM_STATE);
   const [isSent, setIsSent] = useState(false);
   const formRef = useRef();
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   const handleChange = (e) => {
     setForm((prev) => ({
@@ -100,7 +141,7 @@ const Contact = () => {
   };
 
   return (
-    <Box id="contact" py={10} bgcolor="background.paper">
+    <Box id="contact" py={{ xs: 6, md: 10 }} bgcolor={mode === 'dark' ? "background.paper" : "background.default"}>
       <Container maxWidth="sm">
         <Typography
           variant="h3"
@@ -108,18 +149,31 @@ const Contact = () => {
           align="center"
           gutterBottom
           sx={{
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             background: "linear-gradient(90deg,#8b5cf6,#3b82f6)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            mb: 5,
+            mb: { xs: 3, md: 5 },
           }}
         >
           Get In Touch
         </Typography>
-        <Paper elevation={6} sx={{ p: 6, borderRadius: 4 }}>
+        <Paper 
+          elevation={6} 
+          sx={{ 
+            p: { xs: 3, md: 6 }, 
+            borderRadius: 4,
+            bgcolor: mode === 'dark' ? 'background.default' : 'background.paper'
+          }}
+          component={motion.div}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <form ref={formRef} onSubmit={handleSubmit}>
-            <ContactFormFields form={form} handleChange={handleChange} />
-            <SubmitButton />
+            <ContactFormFields form={form} handleChange={handleChange} isMobile={isMobile} />
+            <SubmitButton isMobile={isMobile} />
             {isSent && (
               <Alert severity="success" sx={{ mt: 3, textAlign: "center" }}>
                 Message sent! I'll get back to you soon.

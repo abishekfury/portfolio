@@ -33,3 +33,52 @@
 .dark-mode .section-title::after {
   background-color: #FFD700;
 }
+
+
+/* Add to your existing global CSS */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 4rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title::after {
+    width: 60px;
+    height: 3px;
+    bottom: -0.8rem;
+  }
+
+  #home {
+    padding-top: 70px;
+  }
+
+  .project-card {
+    margin-bottom: 2rem;
+  }
+
+  .skill-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
+}
