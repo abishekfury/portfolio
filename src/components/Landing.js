@@ -16,12 +16,12 @@ import profilePic from "../assets/profile.jpeg";
 
 const social = [
   {
-    href: "https://github.com/yourusername",
+    href: "https://github.com/abishekfury",
     icon: <GitHubIcon fontSize="large" />,
     label: "GitHub",
   },
   {
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://www.linkedin.com/in/contacttoabishek",
     icon: <LinkedInIcon fontSize="large" />,
     label: "LinkedIn",
   },
