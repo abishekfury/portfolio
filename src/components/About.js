@@ -24,7 +24,7 @@ const aboutSections = [
     title: "Professional Profile",
     content: (
       <Typography variant="body1" color="text.secondary" lineHeight={1.7}>
-        I am an aspiring <strong>Tech Analyst</strong> with 1 year of professional experience at <strong>SRM Institute of Science and Technology</strong>, contributing to projects in big data analytics and IT solutions. I have a solid foundation in software development and data management, coupled with a Bachelor's degree in Computer Applications. I am passionate about leveraging technology to solve real-world problems and continuously expanding my technical skill set.
+        I am an aspiring <strong>Tech Analyst</strong> with 8 Month of professional experience at <strong>SRM Institute of Science and Technology</strong>, contributing to projects in big data analytics and IT solutions. I have a solid foundation in software development and data management, coupled with a Bachelor's degree in Computer Applications. I am passionate about leveraging technology to solve real-world problems and continuously expanding my technical skill set.
       </Typography>
     )
   },

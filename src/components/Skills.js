@@ -27,47 +27,50 @@ import gitIcon from "../assets/git.webp";
 import codeIcon from "../assets/code.webp";
 import leaderIcon from "../assets/leader.webp";
 import docIcon from "../assets/doc.jpg";
+import htmlIcon from '../assets/HTML.webp';
+import cssIcon from '../assets/css.png';
+import jsIcon from '../assets/js.jpg';
 
 const expertiseAreas = [
   {
     category: "Frontend Development",
     skills: [
-      { name: "React", icon: reactIcon, level: 90 },
-      { name: "Redux", icon: reduxIcon, level: 50 },
-      { name: "Material UI", icon: muiIcon, level: 90 },
-      { name: "Tailwind CSS", icon: tailwindIcon, level: 70 },
+      { name: "HTML5", icon: htmlIcon },
+      { name: "CSS3", icon: cssIcon },
+      { name: "JavaScript", icon: jsIcon },
+      { name: "React.js", icon: reactIcon },
+      { name: "Material UI", icon: muiIcon },
+      { name: "Tailwind CSS", icon: tailwindIcon },
     ],
   },
   {
     category: "Backend Development",
     skills: [
-      { name: "Node.js", icon: nodeIcon, level: 80 },
-      { name: "Express.js", icon: expressIcon, level: 80 },
-      { name: "REST API", icon: apiIcon, level: 75 },
+      { name: "Node.js", icon: nodeIcon },
+      { name: "Express.js", icon: expressIcon },
+      { name: "REST API", icon: apiIcon },
     ],
   },
   {
-    category: "Database & DevOps",
+    category: "Database & Data Management",
     skills: [
-      { name: "MongoDB", icon: mongoIcon, level: 85 },
-      { name: "Docker", icon: dockerIcon, level: 60 },
-      { name: "CI/CD", icon: cicdIcon, level: 70 },
+      { name: "MongoDB", icon: mongoIcon },
+      { name: "Mongoose ODM", icon: dockerIcon }
     ],
   },
   {
     category: "Collaboration & Process",
     skills: [
-      { name: "Git", icon: gitIcon, level: 60 },
-      { name: "Code Reviews", icon: codeIcon, level: 60 },
-      { name: "Technical Leadership", icon: leaderIcon, level: 80 },
-      { name: "Documentation", icon: docIcon, level: 85 },
+      { name: "Git", icon: gitIcon },
+      { name: "Code Reviews", icon: codeIcon },
+      { name: "Technical Leadership", icon: leaderIcon }
     ],
   },
 ];
 
 const Skills = ({ mode }) => {
   const isMobile = useMediaQuery('(max-width:600px)');
-  
+
   return (
     <Box id="skills" py={{ xs: 4, md: 10 }} px={{ xs: 1, md: 3 }} bgcolor={mode === 'dark' ? "background.paper" : "background.default"}>
       <Typography
@@ -138,8 +141,8 @@ const Skills = ({ mode }) => {
                     justifyContent: "center",
                   }}
                 >
-                  <motion.div 
-                    whileHover={{ y: isMobile ? 0 : -4 }} 
+                  <motion.div
+                    whileHover={{ y: isMobile ? 0 : -4 }}
                     transition={{ duration: 0.24 }}
                   >
                     <Paper
@@ -156,63 +159,35 @@ const Skills = ({ mode }) => {
                         height: "100%",
                         minWidth: { xs: '100%', sm: 235 },
                         maxWidth: 300,
-                        minHeight: { xs: 180, md: 230 },
+                        minHeight: { xs: 140, md: 160 },
                         boxSizing: "border-box",
                       }}
                     >
-                      <Box display="flex" alignItems="center" mb={2}>
+                      <Box display="flex" flexDirection="column" alignItems="center" mb={2}>
                         <Tooltip title={skill.name}>
                           <Avatar
                             src={skill.icon}
                             alt={skill.name}
                             sx={{
-                              width: 50,
-                              height: 50,
+                              width: 60,
+                              height: 60,
                               border: "2px solid",
                               borderColor: "primary.main",
                               bgcolor: mode === 'dark' ? "background.paper" : "background.default",
+                              mb: 2
                             }}
                           />
                         </Tooltip>
                         <Typography
                           variant="subtitle1"
                           fontWeight={600}
-                          sx={{ 
-                            ml: 2, 
+                          sx={{
                             color: "text.primary",
-                            fontSize: { xs: '0.9rem', md: '1rem' }
+                            fontSize: { xs: '1rem', md: '1.1rem' },
+                            textAlign: 'center'
                           }}
                         >
                           {skill.name}
-                        </Typography>
-                      </Box>
-                      <Divider sx={{ my: 1 }} />
-                      <Box width="100%" mt="auto">
-                        <LinearProgress
-                          variant="determinate"
-                          value={skill.level}
-                          sx={{
-                            height: 8,
-                            borderRadius: 4,
-                            backgroundColor: mode === 'dark' ? "rgba(255, 255, 255, 0.1)" : "action.selected",
-                            "& .MuiLinearProgress-bar": {
-                              background:
-                                "linear-gradient(to right, #3b82f6, #a78bfa)",
-                              borderRadius: 4,
-                            },
-                          }}
-                        />
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          align="right"
-                          mt={1}
-                          fontWeight={500}
-                          sx={{
-                            fontSize: { xs: '0.75rem', md: '0.875rem' }
-                          }}
-                        >
-                          {skill.level}% proficiency
                         </Typography>
                       </Box>
                     </Paper>

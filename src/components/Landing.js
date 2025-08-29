@@ -25,11 +25,11 @@ const social = [
     icon: <LinkedInIcon fontSize="large" />,
     label: "LinkedIn",
   },
-  {
-    href: "#",
-    icon: <TwitterIcon fontSize="large" />,
-    label: "Twitter",
-  },
+  // {
+  //   href: "#",
+  //   icon: <TwitterIcon fontSize="large" />,
+  //   label: "Twitter",
+  // },
 ];
 
 const Landing = ({ mode }) => {
@@ -145,8 +145,11 @@ const Landing = ({ mode }) => {
             <Button
               variant="contained"
               color="primary"
-              href="/assets/Abishek Resume.pdf"
+              component="a"
+              href="/assets/Abishek_Resume.pdf"
               target="_blank"
+              rel="noopener noreferrer"
+              download="Abishek_Resume.pdf"
               sx={{
                 borderRadius: "30px",
                 px: 4,

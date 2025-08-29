@@ -13,7 +13,8 @@ import {
 import { motion } from "framer-motion";
 
 import gymImg from "../assets/gym.png";
-import amazonImg from "../assets/amazon.webp";
+// import amazonImg from "../assets/amazon.webp";
+import nvzImg from '../assets/nvzimage.png'
 
 const PROJECTS = [
   {
@@ -24,15 +25,16 @@ const PROJECTS = [
     link: "https://github.com/yourusername/social-app",
   },
   {
-    title: "Clone Amazon Project",
+    title: "NVZ Design  Project",
     description:
-      "Feature-rich admin panel for managing products, orders, and detailed analytics.",
-    image: amazonImg,
-    link: "https://github.com/yourusername/ecommerce-dashboard",
+      "A responsive portfolio website showcasing design and build projects and modern UI.",
+    image: nvzImg,
+    githubLink: "https://github.com/abishekfury/NVZ",
+    liveLink: "https://nivuzzdesign.github.io/NVZ/",
   },
 ];
 
-const ProjectCard = ({ title, description, image, link, isMobile }) => (
+const ProjectCard = ({ title, description, image, link, githubLink, liveLink, isMobile }) => (
   <Card
     component={motion.div}
     whileHover={{ y: isMobile ? 0 : -8 }}
@@ -77,22 +79,57 @@ const ProjectCard = ({ title, description, image, link, isMobile }) => (
         {description}
       </Typography>
     </CardContent>
-    <CardActions sx={{ p: 2 }}>
-      <Button
-        variant="contained"
-        color="primary"
-        href={link}
-        target="_blank"
-        rel="noopener"
-        fullWidth
-        sx={{ 
-          borderRadius: "30px",
-          py: 1,
-          fontSize: { xs: '0.875rem', md: '1rem' }
-        }}
-      >
-        View Code & Demo
-      </Button>
+    <CardActions sx={{ p: 2, flexDirection: 'column', gap: 1 }}>
+      {githubLink && liveLink ? (
+        <>
+          <Button
+            variant="contained"
+            color="primary"
+            href={githubLink}
+            target="_blank"
+            rel="noopener"
+            fullWidth
+            sx={{ 
+              borderRadius: "30px",
+              py: 1,
+              fontSize: { xs: '0.875rem', md: '1rem' }
+            }}
+          >
+            View Code
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            href={liveLink}
+            target="_blank"
+            rel="noopener"
+            fullWidth
+            sx={{ 
+              borderRadius: "30px",
+              py: 1,
+              fontSize: { xs: '0.875rem', md: '1rem' }
+            }}
+          >
+            Live Demo
+          </Button>
+        </>
+      ) : (
+        <Button
+          variant="contained"
+          color="primary"
+          href={link}
+          target="_blank"
+          rel="noopener"
+          fullWidth
+          sx={{ 
+            borderRadius: "30px",
+            py: 1,
+            fontSize: { xs: '0.875rem', md: '1rem' }
+          }}
+        >
+          View Code & Demo
+        </Button>
+      )}
     </CardActions>
   </Card>
 );
