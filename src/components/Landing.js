@@ -146,7 +146,7 @@ const Landing = ({ mode }) => {
               variant="contained"
               color="primary"
               component="a"
-              href="/assets/Abishek_Resume.pdf"
+              href="/portfolio/assets/Abishek_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download="Abishek_Resume.pdf"
