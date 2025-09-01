@@ -25,16 +25,15 @@ const PROJECTS = [
     link: "https://github.com/yourusername/social-app",
   },
   {
-    title: "NVZ Design  Project",
+    title: "NVZ Design Project",
     description:
       "A responsive portfolio website showcasing design and build projects and modern UI.",
     image: nvzImg,
-    githubLink: "https://github.com/abishekfury/NVZ",
-    liveLink: "https://nivuzzdesign.github.io/NVZ/",
+    link: "https://abishekfury.github.io/nvz_project/", // Single link for View Code & Demo
   },
 ];
 
-const ProjectCard = ({ title, description, image, link, githubLink, liveLink, isMobile }) => (
+const ProjectCard = ({ title, description, image, link, isMobile }) => (
   <Card
     component={motion.div}
     whileHover={{ y: isMobile ? 0 : -8 }}
@@ -59,9 +58,9 @@ const ProjectCard = ({ title, description, image, link, githubLink, liveLink, is
       sx={{ objectFit: "cover" }}
     />
     <CardContent>
-      <Typography 
-        variant="h5" 
-        component="div" 
+      <Typography
+        variant="h5"
+        component="div"
         gutterBottom
         sx={{
           fontSize: { xs: '1.25rem', md: '1.5rem' }
@@ -69,8 +68,8 @@ const ProjectCard = ({ title, description, image, link, githubLink, liveLink, is
       >
         {title}
       </Typography>
-      <Typography 
-        variant="body2" 
+      <Typography
+        variant="body2"
         color="text.secondary"
         sx={{
           fontSize: { xs: '0.875rem', md: '1rem' }
@@ -80,40 +79,7 @@ const ProjectCard = ({ title, description, image, link, githubLink, liveLink, is
       </Typography>
     </CardContent>
     <CardActions sx={{ p: 2, flexDirection: 'column', gap: 1 }}>
-      {githubLink && liveLink ? (
-        <>
-          <Button
-            variant="contained"
-            color="primary"
-            href={githubLink}
-            target="_blank"
-            rel="noopener"
-            fullWidth
-            sx={{ 
-              borderRadius: "30px",
-              py: 1,
-              fontSize: { xs: '0.875rem', md: '1rem' }
-            }}
-          >
-            View Code
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            href={liveLink}
-            target="_blank"
-            rel="noopener"
-            fullWidth
-            sx={{ 
-              borderRadius: "30px",
-              py: 1,
-              fontSize: { xs: '0.875rem', md: '1rem' }
-            }}
-          >
-            Live Demo
-          </Button>
-        </>
-      ) : (
+      <CardActions sx={{ p: 2, flexDirection: 'column', gap: 1 }}>
         <Button
           variant="contained"
           color="primary"
@@ -121,22 +87,22 @@ const ProjectCard = ({ title, description, image, link, githubLink, liveLink, is
           target="_blank"
           rel="noopener"
           fullWidth
-          sx={{ 
+          sx={{
             borderRadius: "30px",
             py: 1,
             fontSize: { xs: '0.875rem', md: '1rem' }
           }}
         >
-          View Code & Demo
+          Live Demo
         </Button>
-      )}
+      </CardActions>
     </CardActions>
   </Card>
 );
 
 const Projects = ({ mode }) => {
   const isMobile = useMediaQuery('(max-width:600px)');
-  
+
   return (
     <Box id="projects" py={{ xs: 6, md: 10 }} bgcolor={mode === 'dark' ? "background.default" : "background.paper"}>
       <Typography
@@ -154,9 +120,9 @@ const Projects = ({ mode }) => {
       >
         Projects
       </Typography>
-      <Grid 
-        container 
-        spacing={{ xs: 4, md: 6 }} 
+      <Grid
+        container
+        spacing={{ xs: 4, md: 6 }}
         justifyContent="center"
         px={isMobile ? 2 : 0}
       >
